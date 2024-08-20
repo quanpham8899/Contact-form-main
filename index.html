@@ -3,50 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="index.css">
   <title>Frontend Mentor | Contact form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  
 </head>
 <body>
+  <div id="myModal" class="modal">
 
-  Contact Us
-
-  First Name
-  This field is required
-
-  Last Name
-  This field is required
-
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
-  Message
-  This field is required
-
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="v_tick.svg" width="20" height="20" alt="" style="float:left;">
+      <span style="margin-left: 8px; font-weight: bold;">Message Sent!</span>
+      <p>Thanks for the completing the form. We'll be in touch soon!</p>
+    </div>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <div class="container">
+    <div class="header">
+      <h1>
+        Contact Us
+      </h1>
+    </div>
+    <form id="contact-form" action="/submit" method="post">
+      <div class="body">
+        <div class="body-name">
+          <div class="body-name-first">
+            <label for="first_name">First Name    <label class="input-note">*</label></label>
+            <input id="first_name" type="text">
+            <div class="error-label" id="first-name-error">
+              <label>This field is required</label>
+            </div>
+          </div>
+          <div class="body-name-last">
+            <label for="last_name">Last Name    <label class="input-note">*</label></label>
+            <input id="last_name" type="text">
+            <div class="error-label" id="last-name-error">
+              <label>This field is required</label>
+            </div>
+          </div>        
+        </div>
+        <div class="body-email">
+          <label for="_email">Email Address    <label class="input-note">*</label></label>
+          <input id="_email" type="email" >
+          <div class="error-label" id="email-error">
+            <label>Please enter a valid email address</label>
+          </div>
+        </div>
+        <div class="body-query">
+          <div class="body-query-header">
+            <label>Query Type    <label class="input-note">*</label></label>
+          </div>
+          <div class="body-query-body">
+            <div class="query-left" id="q_left">
+              <input id="general-enquiry" type="radio">
+              <label for="general-enquiry">Query Type</label>
+            </div>
+            <div class="query-right" id="q_right">
+              <input id="support-request" type="radio">
+              <label for="support-request">Support Request</label>
+            </div>  
+          </div>
+          <div class="error-label" id="query-error">
+            <label>Please select a query type</label>
+          </div>
+        </div>        
+        <div class="body-message">
+          <label for="message">Message    <label class="input-note">*</label></label>
+          <textarea name="_message" id="_message" ></textarea>
+        </div>
+        <div class="error-label" id="message-error">
+          <label>This field is required</label>
+        </div>
+        <div class="body-term">
+          <input id="term-checkbox" type="checkbox">
+          <label for="term-checkbox">I consent to being contacted by the team</label>
+        </div>
+        <div class="error-label" id="term-error">
+          <label>To submit this form, please consent to being contacted</label>
+        </div>
+        <div class="body-submitButton">
+          <button type="submit" onclick="OnSubmitCheck()">Submit</button>
+        </div>
+      </div>
+    </form>
   </div>
 </body>
+<script rel src="index.js"></script>
 </html>
